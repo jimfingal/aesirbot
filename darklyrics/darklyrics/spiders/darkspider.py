@@ -3,10 +3,10 @@ from scrapy.contrib.spiders import CrawlSpider, Rule
 from scrapy.contrib.linkextractors import LinkExtractor
 from unipath import Path
 import lxml.html
-
+from scrapy import log
 
 class DarkSpider(CrawlSpider):
-    name = "darkpider"
+    name = "darkspider"
     allowed_domains = ["www.darklyrics.com"]
     start_urls = (
         'http://www.darklyrics.com/a/abaddonincarnate.html',
@@ -30,10 +30,12 @@ class DarkSpider(CrawlSpider):
         filename = "%s_%s.html" % (artist, album)
 
         lxml_body = lxml.html.fromstring(response.body)
-        lyrics = lxml_body.cssselect(".lyrics")
+        lyrics = lxml_body.cssselect(".lyrics")[0]
         output = lxml.html.tostring(lyrics)
 
         if output:
             Path("../data/" + letter + "/").mkdir(parents=True)
             p = Path("../data/" + letter + "/" + filename)
-            p.write_file(response.body)
+            if not p.exists():
+                log.msg("Writing: %s" % filename, level=log.INFO)
+                p.write_file(response.body)
