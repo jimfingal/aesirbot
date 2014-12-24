@@ -1,0 +1,6 @@
+*.py[cod]
+.DS_Store
+nltk_data
+data/*.html
+data/tokenizers
+.ipynb_checkpoints
