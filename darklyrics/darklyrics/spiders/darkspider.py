@@ -9,7 +9,7 @@ class DarkSpider(CrawlSpider):
     name = "darkspider"
     allowed_domains = ["www.darklyrics.com"]
     start_urls = (
-        'http://www.darklyrics.com/a/abaddonincarnate.html',
+        'http://www.darklyrics.com/',
     )
 
     rules = (
