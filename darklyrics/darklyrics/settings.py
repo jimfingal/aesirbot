@@ -24,7 +24,7 @@ RANDOMIZE_DOWNLOAD_DELAY = True
 
 #DEPTH_LIMIT = 1
 
-LOG_LEVEL = "DEBUG"
+LOG_LEVEL = "INFO"
 
 # Retry many times since proxies often fail
 RETRY_TIMES = 10
