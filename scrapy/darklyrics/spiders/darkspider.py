@@ -38,4 +38,4 @@ class DarkSpider(CrawlSpider):
             p = Path("../data/" + letter + "/" + filename)
             if not p.exists():
                 log.msg("Writing: %s" % filename, level=log.INFO)
-                p.write_file(output)
+                #p.write_file(output)

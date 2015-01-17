@@ -13,16 +13,12 @@ BOT_NAME = 'darkspider'
 SPIDER_MODULES = ['darklyrics.spiders']
 NEWSPIDER_MODULE = 'darklyrics.spiders'
 
-# Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'darklyrics (+http://www.yourdomain.com)'
-
-
 COOKIES_ENABLED = False
 
 DOWNLOAD_DELAY = 3
 RANDOMIZE_DOWNLOAD_DELAY = True
 
-#DEPTH_LIMIT = 1
+DEPTH_LIMIT = 1
 
 LOG_LEVEL = "INFO"
 
