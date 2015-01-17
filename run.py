@@ -1,7 +1,7 @@
 import redis 
 import logging
 
-from botutils import config, twitter
+from botutils import config, twitter, ai
 from ebookofblackearth import aesirbot, storage
 
 log_fmt = "%(levelname)-6s %(processName)s %(filename)-12s:%(lineno)-4d at %(asctime)s: %(message)s"
@@ -10,6 +10,8 @@ logging.basicConfig(level=logging.INFO, format=log_fmt)
 APP_NAME = "AESIRBOT"
 
 if __name__ == "__main__":
+
+    ai.boostrap_nltk_data()
 
     config.check_config(APP_NAME)
 

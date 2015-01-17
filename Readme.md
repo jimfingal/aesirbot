@@ -19,3 +19,11 @@ This puts all of the data into a "data" directory
 # Loading Data
 
 TODO Include script that loads data into a db
+
+
+
+# Deploying
+
+Uses buildpack for ease of numpy install:
+
+    heroku config:set BUILDPACK_URL=https://github.com/thenovices/heroku-buildpack-scipy
