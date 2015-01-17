@@ -72,7 +72,7 @@ def clean_tweet(s):
     s = s.replace('(', '')
     s = s.replace(')', '')
     s = s.replace('`', '')
-    s = s.replace('- ', '—')
+    s = s.replace('- ', u'—')
     for word in AESIR_WORDS:
         s = s.replace(word, word.capitalize())
     s = s.replace(" i ", " I ")
