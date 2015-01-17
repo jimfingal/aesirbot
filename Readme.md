@@ -18,9 +18,9 @@ This puts all of the data into a "data" directory
 
 # Loading Data
 
-TODO Include script that loads data into a db
+The load_data.py script is run from the local machine, or wherever has the crawled HTML files, and populates Mongo with the corpus.
 
-
+The Mongo documents are extremely simple -- the only reason I use Mongo here is that you can get more free storage on Heroku, which is useful for moderately-sized corpora; the biggest free Redis add-on only gives you 25 megs.
 
 # Deploying
 
