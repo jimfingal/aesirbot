@@ -1,6 +1,7 @@
 *.py[cod]
 .DS_Store
 nltk_data
+*.ipynb
 data/*
 .ipynb_checkpoints
 scratch/*
