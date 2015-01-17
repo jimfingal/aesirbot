@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from botutils import ai
 from storage import CorpusText
 import md5
