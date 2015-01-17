@@ -1,5 +1,6 @@
 import redis 
 import logging
+import random
 
 from botutils import config, twitter, ai
 from ebookofblackearth import aesirbot, storage
@@ -18,7 +19,9 @@ if __name__ == "__main__":
     storage.connect_mongo(APP_NAME)
     redis_client = redis.from_url(config.get_redis_url(APP_NAME))
 
-    markov = aesirbot.get_markov()
+    n = random.choice([2, 3])
+    logging.info("Using %s-grams" % n)
+    markov = aesirbot.get_markov(n=n)
     
     tweet = aesirbot.get_tweet(markov, redis_client)
     logging.info(tweet)
