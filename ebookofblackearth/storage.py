@@ -3,6 +3,9 @@ import logging
 import mongoengine
 import botutils
 
+APP_NAME = "AESIRBOT"
+REDIS_COLLECTION = 'posted'
+
 class CorpusText(Document):
     text = StringField(required=True)
 

@@ -8,9 +8,10 @@ from ebookofblackearth import aesirbot, storage
 log_fmt = "%(levelname)-6s %(processName)s %(filename)-12s:%(lineno)-4d at %(asctime)s: %(message)s"
 logging.basicConfig(level=logging.INFO, format=log_fmt)
 
-APP_NAME = "AESIRBOT"
 
 if __name__ == "__main__":
+
+    APP_NAME = storage.APP_NAME
 
     ai.boostrap_nltk_data()
 

@@ -2,6 +2,8 @@ from unipath import Path
 from storage import connect_mongo, CorpusText
 from songparser import get_sentences_from_relevant_songs
 from gevent import monkey
+monkey.patch_all()
+
 from bson.errors import InvalidStringData
 import logging
 
@@ -13,18 +15,17 @@ APP_NAME = "AESIRBOT"
 
 if __name__ == "__main__":
 
-    monkey.patch_all()
     connect_mongo(APP_NAME)
-    
-    data_path = Path('./data')
 
     logging.info("Deleting existing sentences")
     CorpusText.objects().delete()
-
+    
     logging.info("Processing sentences")
-    count = 0
 
     seen_sentences = set()
+    count = 0
+
+    data_path = Path('./data')
     for sentence in get_sentences_from_relevant_songs(data_path):
 
         if sentence not in seen_sentences:
@@ -34,8 +35,8 @@ if __name__ == "__main__":
                 text = CorpusText(text=sentence)
                 text.save()
             except InvalidStringData as e:
-                print e
+                logging.error(e)
 
             count += 1
             if count % 10 == 0:
-                print "Processed %s sentences" % count
+                logging.info("Processed %s sentences" % count)

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from botutils import ai
-from storage import CorpusText
+from storage import CorpusText, REDIS_COLLECTION
 import md5
 import logging
 import langid
@@ -9,9 +9,7 @@ from songparser import get_aesir_words, overlap_words
 import nltk
 import re
 
-REDIS_COLLECTION = 'posted'
 AESIR_WORDS = get_aesir_words()
-
 
 def get_markov(n=3):
 
